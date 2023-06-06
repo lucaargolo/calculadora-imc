@@ -75,5 +75,31 @@ if(isNaN(alturaNum) || isNaN(pesoNum)) {
     resultado.innerHTML = resultado.innerHTML.replace("Moderado", "<b>Moderado</b>")
     resultado.innerHTML = resultado.innerHTML.replace("Grave", "<b>Grave</b>")
     resultado.innerHTML = resultado.innerHTML.replace("Muito grave", "<b>Muito grave</b>")
+
+    let canvas = document.getElementById('canvas');
+    let ctx = canvas.getContext('2d');
+
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    var gradiente = ctx.createLinearGradient(0, 0, canvas.width, 0);
+    gradiente.addColorStop(0, '#9999ff'); 
+    gradiente.addColorStop(0.4625, '#00ff00'); 
+    gradiente.addColorStop(0.6225, '#ffff00'); 
+    gradiente.addColorStop(0.7475, '#ff8800'); 
+    gradiente.addColorStop(1, '#ff0000');
+    ctx.fillStyle = gradiente;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    let largura = (imc / 40) * canvas.width;
+    if(largura > canvas.width) {
+        largura = canvas.width
+    }
+    if(largura <= 0) {
+        largura = 1
+    }
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fillRect(largura-2, 0, 3, canvas.height);
+    console.log(largura)
+
 }
 

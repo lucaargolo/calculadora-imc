@@ -21,6 +21,12 @@
     width: 450px;
 }
 
+.calc.res canvas {
+    margin: 10px 10px 0px 10px;
+    width: 430px;
+    height: 25px;
+}
+
 .calc p {
     font-size: 20px;
     font-weight: bold;
